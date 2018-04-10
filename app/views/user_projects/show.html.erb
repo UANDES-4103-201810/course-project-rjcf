@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @user_project.start_date %>
+</p>
+
+<p>
+  <strong>Finish date:</strong>
+  <%= @user_project.finish_date %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user_project.name %>
+</p>
+
+<p>
+  <strong>Favorite:</strong>
+  <%= @user_project.favorite %>
+</p>
+
+<%= link_to 'Edit', edit_user_project_path(@user_project) %> |
+<%= link_to 'Back', user_projects_path %>

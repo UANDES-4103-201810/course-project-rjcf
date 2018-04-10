@@ -1,0 +1,2 @@
+class AdminsProject < ApplicationRecord
+end

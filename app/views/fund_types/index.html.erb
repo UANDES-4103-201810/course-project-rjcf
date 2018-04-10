@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fund Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Username</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fund_types.each do |fund_type| %>
+      <tr>
+        <td><%= fund_type.type %></td>
+        <td><%= fund_type.amount %></td>
+        <td><%= fund_type.username %></td>
+        <td><%= link_to 'Show', fund_type %></td>
+        <td><%= link_to 'Edit', edit_fund_type_path(fund_type) %></td>
+        <td><%= link_to 'Destroy', fund_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fund Type', new_fund_type_path %>

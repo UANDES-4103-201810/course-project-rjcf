@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @paymen_method.card_number %>
+</p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @paymen_method.bank %>
+</p>
+
+<p>
+  <strong>Cardholder name:</strong>
+  <%= @paymen_method.cardholder_name %>
+</p>
+
+<%= link_to 'Edit', edit_paymen_method_path(@paymen_method) %> |
+<%= link_to 'Back', paymen_methods_path %>

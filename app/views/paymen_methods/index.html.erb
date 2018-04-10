@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Paymen Methods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Card number</th>
+      <th>Bank</th>
+      <th>Cardholder name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paymen_methods.each do |paymen_method| %>
+      <tr>
+        <td><%= paymen_method.card_number %></td>
+        <td><%= paymen_method.bank %></td>
+        <td><%= paymen_method.cardholder_name %></td>
+        <td><%= link_to 'Show', paymen_method %></td>
+        <td><%= link_to 'Edit', edit_paymen_method_path(paymen_method) %></td>
+        <td><%= link_to 'Destroy', paymen_method, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paymen Method', new_paymen_method_path %>

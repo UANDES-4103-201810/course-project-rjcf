@@ -1,0 +1,2 @@
+class PaymenMethod < ApplicationRecord
+end
