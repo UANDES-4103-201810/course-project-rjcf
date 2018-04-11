@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-	has_many :paymen_method
-	has_many :funds_type, through: :fund
-        has_many :payment_methods
+	has_many :funds
+	has_many :funds_types, through: :funds
+	has_many :admins_projects
+        has_many :user_projects, through: :admins_projects
+	has_many :paymen_methods, dependent: :delete_all, validate: false
 end
