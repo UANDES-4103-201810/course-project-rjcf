@@ -596,3 +596,753 @@ Completed 200 OK in 27ms (Views: 2.9ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-04-13 18:51:59 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#hello as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 16ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2018-04-13 18:52:05 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:36:in `call_app'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:24:in `block in call'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `tagged'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:24:in `call'
+vendor/bundle/ruby/2.3.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/executor.rb:12:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/static.rb:125:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/engine.rb:522:in `call'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:624:in `handle_request'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:438:in `process_client'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:302:in `block in run'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2018-04-13 18:52:08 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 1318ms (Views: 1273.4ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2018-04-13 18:52:15 -0300
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ff+Oje1utSe3ywRvTdz6zsYrajV68qhWLVdkbiKzUgBMYdajRLD55H0SiIrqv1GITWDC6z2CApDH/iRnOhXa8Q==", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.8ms)[0m  [1m[31mDELETE FROM "funds" WHERE "funds"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 5.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: funds.user_id: DELETE FROM "funds" WHERE "funds"."user_id" = ?):
+  
+app/controllers/users_controller.rb:57:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/" for 127.0.0.1 at 2018-04-13 18:54:04 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (32.6ms)
+Completed 200 OK in 455ms (Views: 426.9ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2018-04-13 18:54:08 -0300
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"X7Hqre/vd+XqRo9CzqiU0rZek3dTezsISCrPXr9CffUGL7KDRjE7JiCfA6dpyz+UPRU7qRQLkc6ig49Xp+T1BA==", "id"=>"2"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "funds" WHERE "funds"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 5.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: funds.user_id: DELETE FROM "funds" WHERE "funds"."user_id" = ?):
+  
+app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mFund Load (5.2ms)[0m  [1m[34mSELECT  "funds".* FROM "funds" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/funds" for 127.0.0.1 at 2018-04-13 18:55:21 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FundsController#index as HTML
+  Rendering funds/index.html.erb within layouts/application
+  [1m[36mFund Load (0.2ms)[0m  [1m[34mSELECT "funds".* FROM "funds"[0m
+  Rendered funds/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 489ms (Views: 463.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/funds/new" for 127.0.0.1 at 2018-04-13 18:55:25 -0300
+Processing by FundsController#new as HTML
+  Rendering funds/new.html.erb within layouts/application
+  Rendered funds/_form.html.erb (12.1ms)
+  Rendered funds/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 89ms (Views: 74.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/funds" for 127.0.0.1 at 2018-04-13 18:55:26 -0300
+Processing by FundsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t+BJB0dKE5CsbhDdxVaAj/croSrajYe/1mUiQzSv8+xNkZ/CJ7oU7vAh7jAxn5CNx0R8KAv6ze80yxsYuPCFpg==", "commit"=>"Create Fund"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/javier/Desktop/course-project-rjcf/app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	has_many :user through:funds
+	                      ^):
+  
+app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/funds_controller.rb:30:in `block in create'
+app/controllers/funds_controller.rb:29:in `create'
+Started GET "/fund_types" for 127.0.0.1 at 2018-04-13 18:56:40 -0300
+Processing by FundTypesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/javier/Desktop/course-project-rjcf/app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	has_many :user through:funds
+	                      ^):
+  
+app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/fund_types_controller.rb:7:in `index'
+Started GET "/fund_types" for 127.0.0.1 at 2018-04-13 18:57:08 -0300
+Processing by FundTypesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/javier/Desktop/course-project-rjcf/app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	has_many :user through:funds
+	                      ^):
+  
+app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/fund_types_controller.rb:7:in `index'
+Started GET "/fund_types" for 127.0.0.1 at 2018-04-13 18:57:47 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FundTypesController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/javier/Desktop/course-project-rjcf/app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	has_many :user through:funds
+	                      ^):
+  
+app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/fund_types_controller.rb:7:in `index'
+Started GET "/fund_types" for 127.0.0.1 at 2018-04-13 18:57:52 -0300
+Processing by FundTypesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/javier/Desktop/course-project-rjcf/app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	has_many :user through:funds
+	                      ^):
+  
+app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/fund_types_controller.rb:7:in `index'
+Started GET "/user_projects" for 127.0.0.1 at 2018-04-13 18:59:18 -0300
+Processing by UserProjectsController#index as HTML
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 5.4ms)
+
+
+  
+NoMethodError (undefined method `many' for #<Class:0x00000003d98750>
+Did you mean?  many?):
+  
+app/models/user_project.rb:2:in `<class:UserProject>'
+app/models/user_project.rb:1:in `<top (required)>'
+app/controllers/user_projects_controller.rb:7:in `index'
+Started GET "/users/" for 127.0.0.1 at 2018-04-13 19:00:21 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 406ms (Views: 376.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/funds" for 127.0.0.1 at 2018-04-13 19:00:29 -0300
+Processing by FundsController#index as HTML
+  Rendering funds/index.html.erb within layouts/application
+  [1m[36mFund Load (0.2ms)[0m  [1m[34mSELECT "funds".* FROM "funds"[0m
+  Rendered funds/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 79ms (Views: 69.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/paymen_method" for 127.0.0.1 at 2018-04-13 19:00:39 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/paymen_method"):
+  
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:36:in `call_app'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:24:in `block in call'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `tagged'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:24:in `call'
+vendor/bundle/ruby/2.3.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/executor.rb:12:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/static.rb:125:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/engine.rb:522:in `call'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:624:in `handle_request'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:438:in `process_client'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:302:in `block in run'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:01:20 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PaymenMethodsController#index as HTML
+  Rendering paymen_methods/index.html.erb within layouts/application
+  [1m[36mPaymenMethod Load (0.2ms)[0m  [1m[34mSELECT "paymen_methods".* FROM "paymen_methods"[0m
+  Rendered paymen_methods/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 512ms (Views: 489.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/fund_types" for 127.0.0.1 at 2018-04-13 19:01:47 -0300
+Processing by FundTypesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/javier/Desktop/course-project-rjcf/app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	has_many :user through:funds
+	                      ^):
+  
+app/models/fund_type.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/fund_types_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/fund_types" for 127.0.0.1 at 2018-04-13 19:04:28 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FundTypesController#index as HTML
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 7.2ms)
+
+
+  
+NameError (undefined local variable or method `funds' for #<Class:0x00000003023188>):
+  
+app/models/fund_type.rb:3:in `<class:FundType>'
+app/models/fund_type.rb:1:in `<top (required)>'
+app/controllers/fund_types_controller.rb:7:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/fund_types" for 127.0.0.1 at 2018-04-13 19:05:08 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FundTypesController#index as HTML
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/javier/Desktop/course-project-rjcf/app/models/fund_type.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+	has_many :user, through :funds
+	                         ^):
+  
+app/models/fund_type.rb:3: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/controllers/fund_types_controller.rb:7:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/fund_types" for 127.0.0.1 at 2018-04-13 19:05:45 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FundTypesController#index as HTML
+  Rendering fund_types/index.html.erb within layouts/application
+  [1m[36mFundType Load (0.2ms)[0m  [1m[34mSELECT "fund_types".* FROM "fund_types"[0m
+  Rendered fund_types/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 513ms (Views: 482.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/fund" for 127.0.0.1 at 2018-04-13 19:05:58 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/fund"):
+  
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:36:in `call_app'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:24:in `block in call'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `tagged'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:24:in `call'
+vendor/bundle/ruby/2.3.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/executor.rb:12:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/static.rb:125:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/engine.rb:522:in `call'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:624:in `handle_request'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:438:in `process_client'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:302:in `block in run'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/funds" for 127.0.0.1 at 2018-04-13 19:06:01 -0300
+Processing by FundsController#index as HTML
+  Rendering funds/index.html.erb within layouts/application
+  [1m[36mFund Load (0.1ms)[0m  [1m[34mSELECT "funds".* FROM "funds"[0m
+  Rendered funds/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 151ms (Views: 124.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admins_projects" for 127.0.0.1 at 2018-04-13 19:06:13 -0300
+Processing by AdminsProjectsController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/javier/Desktop/course-project-rjcf/app/models/admins_project.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+	has_many :users through :user_projects
+	                       ^):
+  
+app/models/admins_project.rb:3: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/admins_projects_controller.rb:7:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/admins_projects" for 127.0.0.1 at 2018-04-13 19:07:31 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdminsProjectsController#index as HTML
+  Rendering admins_projects/index.html.erb within layouts/application
+  [1m[36mAdminsProject Load (0.2ms)[0m  [1m[34mSELECT "admins_projects".* FROM "admins_projects"[0m
+  Rendered admins_projects/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 514ms (Views: 488.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-04-13 19:07:52 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 154ms (Views: 136.5ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2018-04-13 19:07:58 -0300
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ni2XWqZktRfA/Q6bB/HkPH43XBajVgMLaNHdVQsPaT7Hs890D7r51Aokgn6gkk969Xz0yOQmqc2CeJ1cE6nhzw==", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "funds" WHERE "funds"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: funds.user_id: DELETE FROM "funds" WHERE "funds"."user_id" = ?):
+  
+app/controllers/users_controller.rb:57:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for 127.0.0.1 at 2018-04-13 19:10:10 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (62.2ms)
+Completed 200 OK in 570ms (Views: 524.8ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2018-04-13 19:10:14 -0300
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5nw4E0saJgsWOKFKR/fAkLTknXkeDaRxCYaNKT0Qf/a/4mA94sRqyNzhLa/glGvWP681p1l9DrfjL80gJbb3Bw==", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "funds" WHERE "funds"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: funds.user_id: DELETE FROM "funds" WHERE "funds"."user_id" = ?):
+  
+app/controllers/users_controller.rb:57:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-04-13 19:13:47 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#hello as HTML
+  Rendering html template
+  Rendered html template (0.2ms)
+Completed 200 OK in 18ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-04-13 19:13:54 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 538ms (Views: 504.8ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/1" for 127.0.0.1 at 2018-04-13 19:14:00 -0300
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SPDdzssBbQ/RUY6Srj3uTMP31F5n871RyH7ta8G+OXURboXgYt8hzBuIAncJXkUKSLx8gCCDF5ci161i2RixhA==", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "paymen_methods" WHERE "paymen_methods"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: paymen_methods.user_id: DELETE FROM "paymen_methods" WHERE "paymen_methods"."user_id" = ?):
+  
+app/controllers/users_controller.rb:57:in `destroy'
+Started GET "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:21:30 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PaymenMethodsController#index as HTML
+  Rendering paymen_methods/index.html.erb within layouts/application
+  [1m[36mPaymenMethod Load (0.2ms)[0m  [1m[34mSELECT "paymen_methods".* FROM "paymen_methods"[0m
+  Rendered paymen_methods/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 546ms (Views: 508.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/paymen_methods/new" for 127.0.0.1 at 2018-04-13 19:21:33 -0300
+Processing by PaymenMethodsController#new as HTML
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (30.7ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 138ms (Views: 119.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:21:45 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iYBnqsPfPpRoKe5vul5i0s3WnZzurF2yDGEfl4HmwZK9tknK506+hTY+hQvm6ox8LgmVVvndF9sUC0fVCY3J0g==", "paymen_method"=>{"card_number"=>"1231", "bank"=>"hola", "cardholder_name"=>"rodrigo ghersi"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (10.2ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 208ms (Views: 131.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:22:03 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i44NGAp+rvBiLP+3tsNrGbz3yforW2OWI18b+HJmucbSEFU2o6DiM6j1c1IRoMBfN7xhJGwryVDJ9lvxasAxNw==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"rodrigo ghersi"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (12.2ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 122ms (Views: 111.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-04-13 19:22:17 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 105ms (Views: 98.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:22:32 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"deTJcQnPLNVX15Nl93j5Niew5KVIhx8Z9QP1916FSmcsepFfoBFgFp0OH4BQG1JwrPtMew/3td8fqrX+RiPClg==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"Rodrigo"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (2.2ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 70ms (Views: 65.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:22:33 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZBKV2b1mKHOPNW+CcYTGKzSXdcyVOceLVP6dr3VqqZc9jM33FLhksEXs42fW521tv9zdEtJJbU2+V92mbcwhZg==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"Rodrigo"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (2.2ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 76ms (Views: 72.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:22:34 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IQFHxiotZ0PqmtHurlf58GWUPYfu6rYeFdgENqjHB114nx/og/MrgCBDXQsJNFK27t+VWamaHNj/cUQ/sGGPrA==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"Rodrigo"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (2.3ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 71ms (Views: 66.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-04-13 19:22:41 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2018-04-13 19:22:47 -0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (9.1ms)
+  Rendered users/edit.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 90ms (Views: 79.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2018-04-13 19:22:50 -0300
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/OudALVZxEk8q63ICgZDAdOx+0UFVQhMJRkUVYRka1O+AbLmHV3lex0ozmX/W8QqsnDdF2s3HCWoFuE4LiP0DA==", "user"=>{"name"=>"Rodrigo", "username"=>"rodrigoghersi1", "email"=>"rodrigoghersi@gmail.com", "password"=>"[FILTERED]", "biography"=>"fgehehet", "address"=>"mdfhghh"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.8ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "rodrigoghersi1"], ["updated_at", "2018-04-13 22:22:50.643573"], ["id", 1]]
+  [1m[35m (28.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 44ms (ActiveRecord: 31.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-04-13 19:22:50 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 91ms (Views: 89.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:23:03 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h8o0zhZqJuxLQMOUY4s5Y6NTEulFfE9xtu8UGYtsmHjeVGzgv7RqL4GZT3HE6JIlKBi6NwIM5bdcRlQQk8oQiQ==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"rodrigoghersi1"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (8.6ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 93ms (Views: 88.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:23:04 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtWkL5OwVnDrLazA4e5BheJ8XAgbVdrSlBu0SAOkah9/S/wBOm4asyH0ICVGjerDaTf01lwlcBR+svRBGwLi7g==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"rodrigoghersi1"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (7.4ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 72ms (Views: 66.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:23:05 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pNgyUtxCQf4hS+YfiNEsK96dyMNcxeYI11jWNpUtNBD9Rmp8dZwNPeuSavovsodtVdZgHRu1TM498ZY/jYu84Q==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"rodrigoghersi1"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (9.4ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 84ms (Views: 78.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:23:06 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sayEY/L7KTtxsT0xPdDCnwRFgafS7l3Bl0+cIg/C5A7oMtxNWyVl+LtosdSas2nZjw4peZWe9wd95twrF2Rs/w==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"rodrigoghersi1"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (10.0ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 74ms (Views: 72.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:23:12 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ht4CWNwoF66ssABnLohKD1j/DnXsGq5IRVy0QISk2hbfQFp2dfZbbWZpjIKJ6+FJ07Smq6tqBI6v9fRJnAJS5w==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"rodrigoghersi1"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (2.9ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 90ms (Views: 83.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-04-13 19:23:19 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 59ms (Views: 57.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2018-04-13 19:23:22 -0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.2ms)
+  Rendered users/edit.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 91ms (Views: 90.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2018-04-13 19:23:31 -0300
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X9JmtmuNIZ0sSH7NtTNzjoNER/RizOtAR4+DB9OSAA0dOElQw4kArw3LHWBAbvSl4oVhpgyu/ynKgHZqedWfUg==", "user"=>{"name"=>"hola", "username"=>"rodrigoghersi1", "email"=>"rodrigoghersi@gmail.com", "password"=>"[FILTERED]", "biography"=>"fgehehet", "address"=>"mdfhghh"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "hola"], ["updated_at", "2018-04-13 22:23:32.001876"], ["id", 1]]
+  [1m[35m (27.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 39ms (ActiveRecord: 30.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-04-13 19:23:32 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 68ms (Views: 66.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:23:39 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zAUrCtv8eHiWGFBPH5Gu+TFiU1rZedsK9jXWw2nzJ0aVm3MkciI0u1zB3Kq48gW/uin7hJ4JccwcnJbKcVWvtw==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"hola"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (5.3ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 75ms (Views: 68.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:24:26 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E3GDcq2AgPdx4MnqF3G1dBbRP+6nfJ+iwaDULQg14fZK79tcBF7MNLs5RQ+wEh4ynZqXMOAMNWQrCZQkEJNpBw==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"1"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (6.3ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 74ms (Views: 69.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:24:28 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cJFX1NiOwEFqnK/PgQ9vju+rwWehvDK8Z1nNp52U00IpDw/6cVCMgqBFIyombMTIZOBpuebMmHqN8I2uhTJbsw==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"1"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (2.2ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 72ms (Views: 70.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:24:28 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qhBl4C3uer9u2vWRLQFWc8eqmTC0LN3DsVZvdw8Djwnzjj3OhDA2fKQDeXSKYv01TOEx7vNcdwVb/y9+F6UH+A==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"1"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (2.8ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 103ms (Views: 97.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/paymen_methods" for 127.0.0.1 at 2018-04-13 19:24:31 -0300
+Processing by PaymenMethodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BDCv1BjtqMkqg6RfzRQ2Gco4fO+4HGIJ7vM11PBGBMJdrvf6sTPkCuBaKLpqd51fQXPUMf9syM8EWnXd6OCMMw==", "paymen_method"=>{"card_number"=>"123112321", "bank"=>"hola", "cardholder_name"=>"0"}, "commit"=>"Create Paymen method"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering paymen_methods/new.html.erb within layouts/application
+  Rendered paymen_methods/_form.html.erb (2.3ms)
+  Rendered paymen_methods/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 92ms (Views: 84.7ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for 127.0.0.1 at 2018-04-13 19:32:02 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 673ms (Views: 619.9ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/1" for 127.0.0.1 at 2018-04-13 19:32:06 -0300
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XMFDi8+ZAVuDD82JZ5q52ogIHAy0Pazq01qek8bObWgFXxulZkdNmEnWQWzA+RKcA0O00vNNBiw5896a3mjlmQ==", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (10.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (20.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 52ms (ActiveRecord: 31.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-04-13 19:32:06 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 75ms (Views: 73.7ms | ActiveRecord: 0.2ms)
+
+
