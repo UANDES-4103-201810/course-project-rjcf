@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @user_fund_project.type %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_fund_project.user %>
+</p>
+
+<p>
+  <strong>Proyect:</strong>
+  <%= @user_fund_project.proyect %>
+</p>
+
+<%= link_to 'Edit', edit_user_fund_project_path(@user_fund_project) %> |
+<%= link_to 'Back', user_fund_projects_path %>

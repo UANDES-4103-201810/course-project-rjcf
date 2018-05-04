@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Proyect:</strong>
+  <%= @promise.proyect %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @promise.type %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @promise.amount %>
+</p>
+
+<p>
+  <strong>Include:</strong>
+  <%= @promise.include %>
+</p>
+
+<%= link_to 'Edit', edit_promise_path(@promise) %> |
+<%= link_to 'Back', promises_path %>

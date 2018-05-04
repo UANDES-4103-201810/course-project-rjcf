@@ -12,23 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :start_date %>
-    <%= form.datetime_select :start_date, id: :user_project_start_date %>
+    <%= form.label :user %>
+    <%= form.number_field :user, id: :user_project_user %>
   </div>
 
   <div class="field">
-    <%= form.label :finish_date %>
-    <%= form.datetime_select :finish_date, id: :user_project_finish_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :user_project_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :favorite %>
-    <%= form.text_field :favorite, id: :user_project_favorite %>
+    <%= form.label :proyect %>
+    <%= form.number_field :proyect, id: :user_project_proyect %>
   </div>
 
   <div class="actions">

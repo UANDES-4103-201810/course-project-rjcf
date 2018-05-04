@@ -5,10 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Start date</th>
-      <th>Finish date</th>
-      <th>Name</th>
-      <th>Favorite</th>
+      <th>User</th>
+      <th>Proyect</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +14,8 @@
   <tbody>
     <% @user_projects.each do |user_project| %>
       <tr>
-        <td><%= user_project.start_date %></td>
-        <td><%= user_project.finish_date %></td>
-        <td><%= user_project.name %></td>
-        <td><%= user_project.favorite %></td>
+        <td><%= user_project.user %></td>
+        <td><%= user_project.proyect %></td>
         <td><%= link_to 'Show', user_project %></td>
         <td><%= link_to 'Edit', edit_user_project_path(user_project) %></td>
         <td><%= link_to 'Destroy', user_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

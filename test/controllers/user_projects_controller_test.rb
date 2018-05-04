@@ -17,7 +17,7 @@ class UserProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_project" do
     assert_difference('UserProject.count') do
-      post user_projects_url, params: { user_project: { favorite: @user_project.favorite, finish_date: @user_project.finish_date, name: @user_project.name, start_date: @user_project.start_date } }
+      post user_projects_url, params: { user_project: { proyect: @user_project.proyect, user: @user_project.user } }
     end
 
     assert_redirected_to user_project_url(UserProject.last)
@@ -34,7 +34,7 @@ class UserProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_project" do
-    patch user_project_url(@user_project), params: { user_project: { favorite: @user_project.favorite, finish_date: @user_project.finish_date, name: @user_project.name, start_date: @user_project.start_date } }
+    patch user_project_url(@user_project), params: { user_project: { proyect: @user_project.proyect, user: @user_project.user } }
     assert_redirected_to user_project_url(@user_project)
   end
 

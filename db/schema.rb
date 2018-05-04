@@ -10,39 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410010852) do
+ActiveRecord::Schema.define(version: 20180504200429) do
 
-  create_table "admins_projects", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "proyect"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "fund_types", force: :cascade do |t|
+  create_table "promises", force: :cascade do |t|
+    t.integer "proyect"
     t.string "type"
     t.integer "amount"
-    t.string "username"
+    t.string "include"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "funds", force: :cascade do |t|
+  create_table "proyects", force: :cascade do |t|
+    t.string "name"
+    t.integer "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "paymen_methods", force: :cascade do |t|
-    t.integer "card_number"
-    t.string "bank"
-    t.string "cardholder_name"
+  create_table "use_roles", force: :cascade do |t|
+    t.string "type"
+    t.integer "user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_fund_projects", force: :cascade do |t|
+    t.string "type"
+    t.integer "user"
+    t.integer "proyect"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "user_projects", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "finish_date"
-    t.string "name"
-    t.string "favorite"
+    t.integer "user"
+    t.integer "proyect"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,6 +64,12 @@ ActiveRecord::Schema.define(version: 20180410010852) do
     t.text "password"
     t.text "biography"
     t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.integer "proyect"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

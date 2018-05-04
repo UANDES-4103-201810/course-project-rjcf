@@ -1,0 +1,37 @@
+<%= form_with(model: promise, local: true) do |form| %>
+  <% if promise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(promise.errors.count, "error") %> prohibited this promise from being saved:</h2>
+
+      <ul>
+      <% promise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :proyect %>
+    <%= form.number_field :proyect, id: :promise_proyect %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :promise_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, id: :promise_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :include %>
+    <%= form.text_field :include, id: :promise_include %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

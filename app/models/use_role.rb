@@ -1,0 +1,2 @@
+class UseRole < ApplicationRecord
+end
