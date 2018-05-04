@@ -1415,3 +1415,103 @@ Migrating to CreateCategories (20180504200429)
   [1m[35mSQL (7.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-05-04 20:07:33.882450"], ["updated_at", "2018-05-04 20:07:33.882450"]]
   [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-05-04 17:43:54 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#hello as HTML
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 17ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-04 17:43:57 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 1452ms (Views: 1423.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/proyects" for 127.0.0.1 at 2018-05-04 17:44:05 -0300
+Processing by ProyectsController#index as HTML
+  Rendering proyects/index.html.erb within layouts/application
+  [1m[36mProyect Load (0.1ms)[0m  [1m[34mSELECT "proyects".* FROM "proyects"[0m
+  Rendered proyects/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 121ms (Views: 109.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wishlists" for 127.0.0.1 at 2018-05-04 17:44:12 -0300
+Processing by WishlistsController#index as HTML
+  Rendering wishlists/index.html.erb within layouts/application
+  [1m[36mWishlist Load (2.4ms)[0m  [1m[34mSELECT "wishlists".* FROM "wishlists"[0m
+  Rendered wishlists/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 74ms (Views: 60.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/user_roles" for 127.0.0.1 at 2018-05-04 17:44:20 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/user_roles"):
+  
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+vendor/bundle/ruby/2.3.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:36:in `call_app'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:24:in `block in call'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `tagged'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/rack/logger.rb:24:in `call'
+vendor/bundle/ruby/2.3.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.3.0/gems/activesupport-5.1.6/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/executor.rb:12:in `call'
+vendor/bundle/ruby/2.3.0/gems/actionpack-5.1.6/lib/action_dispatch/middleware/static.rb:125:in `call'
+vendor/bundle/ruby/2.3.0/gems/rack-2.0.4/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.3.0/gems/railties-5.1.6/lib/rails/engine.rb:522:in `call'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:624:in `handle_request'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:438:in `process_client'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/server.rb:302:in `block in run'
+vendor/bundle/ruby/2.3.0/gems/puma-3.11.3/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/use_roles" for 127.0.0.1 at 2018-05-04 17:44:27 -0300
+Processing by UseRolesController#index as HTML
+  Rendering use_roles/index.html.erb within layouts/application
+  [1m[36mUseRole Load (0.1ms)[0m  [1m[34mSELECT "use_roles".* FROM "use_roles"[0m
+  Rendered use_roles/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 66ms (Views: 62.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/promises" for 127.0.0.1 at 2018-05-04 17:44:35 -0300
+Processing by PromisesController#index as HTML
+  Rendering promises/index.html.erb within layouts/application
+  [1m[36mPromise Load (0.2ms)[0m  [1m[34mSELECT "promises".* FROM "promises"[0m
+  Rendered promises/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 74ms (Views: 71.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user_fund_projects" for 127.0.0.1 at 2018-05-04 17:44:46 -0300
+Processing by UserFundProjectsController#index as HTML
+  Rendering user_fund_projects/index.html.erb within layouts/application
+  [1m[36mUserFundProject Load (0.2ms)[0m  [1m[34mSELECT "user_fund_projects".* FROM "user_fund_projects"[0m
+  Rendered user_fund_projects/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 62ms (Views: 59.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-04 17:44:52 -0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 60ms (Views: 57.7ms | ActiveRecord: 0.4ms)
+
+
