@@ -16,8 +16,8 @@
     <% @user_fund_projects.each do |user_fund_project| %>
       <tr>
         <td><%= user_fund_project.type %></td>
-        <td><%= user_fund_project.user %></td>
-        <td><%= user_fund_project.proyect %></td>
+        <td><%= user_fund_project.user_id %></td>
+        <td><%= user_fund_project.proyect_id %></td>
         <td><%= link_to 'Show', user_fund_project %></td>
         <td><%= link_to 'Edit', edit_user_fund_project_path(user_fund_project) %></td>
         <td><%= link_to 'Destroy', user_fund_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

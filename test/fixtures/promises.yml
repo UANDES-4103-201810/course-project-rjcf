@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  proyect: 1
+  proyect_id: 1
   type: 
   amount: 1
   include: MyString
 
 two:
-  proyect: 1
+  proyect_id: 1
   type: 
   amount: 1
   include: MyString

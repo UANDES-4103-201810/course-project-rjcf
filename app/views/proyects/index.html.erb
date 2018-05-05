@@ -15,7 +15,7 @@
     <% @proyects.each do |proyect| %>
       <tr>
         <td><%= proyect.name %></td>
-        <td><%= proyect.user %></td>
+        <td><%= proyect.user_id %></td>
         <td><%= link_to 'Show', proyect %></td>
         <td><%= link_to 'Edit', edit_proyect_path(proyect) %></td>
         <td><%= link_to 'Destroy', proyect, method: :delete, data: { confirm: 'Are you sure?' } %></td>

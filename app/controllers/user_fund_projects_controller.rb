@@ -69,6 +69,6 @@ class UserFundProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_fund_project_params
-      params.require(:user_fund_project).permit(:type, :user, :proyect)
+      params.require(:user_fund_project).permit(:type, :user_id, :proyect_id)
     end
 end

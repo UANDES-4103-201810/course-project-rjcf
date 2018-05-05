@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  proyect: 1
+  proyect_id: 1
 
 two:
   name: MyString
-  proyect: 1
+  proyect_id: 1

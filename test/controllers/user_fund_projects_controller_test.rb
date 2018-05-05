@@ -17,7 +17,7 @@ class UserFundProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_fund_project" do
     assert_difference('UserFundProject.count') do
-      post user_fund_projects_url, params: { user_fund_project: { proyect: @user_fund_project.proyect, type: @user_fund_project.type, user: @user_fund_project.user } }
+      post user_fund_projects_url, params: { user_fund_project: { proyect_id: @user_fund_project.proyect_id, type: @user_fund_project.type, user_id: @user_fund_project.user_id } }
     end
 
     assert_redirected_to user_fund_project_url(UserFundProject.last)
@@ -34,7 +34,7 @@ class UserFundProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_fund_project" do
-    patch user_fund_project_url(@user_fund_project), params: { user_fund_project: { proyect: @user_fund_project.proyect, type: @user_fund_project.type, user: @user_fund_project.user } }
+    patch user_fund_project_url(@user_fund_project), params: { user_fund_project: { proyect_id: @user_fund_project.proyect_id, type: @user_fund_project.type, user_id: @user_fund_project.user_id } }
     assert_redirected_to user_fund_project_url(@user_fund_project)
   end
 
