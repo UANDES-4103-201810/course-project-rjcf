@@ -19,30 +19,48 @@
   </head>
 
   <body>
+<style>
+body {
+    background-color: #000000;
+}
+</style>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Projects</a>
+        <a class="navbar-brand" href="/projects">Projects</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+	 
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home
-                <span class="sr-only">(current)</span>
-              </a>
+              <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Categories">Categories</a>
+              <a class="nav-link" href="/categories">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/User">User Profile</a>
+              <a class="nav-link" href="/users">User Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/whishlist">whishlist</a>
+              <a class="nav-link" href="/wishlists">wishlist</a>
+	    </li>
+	     <li class="nav-item">
+              <a class="nav-link" href="/proyects/new">New Project</a>
             </li>
+	    <li class="nav-item">
+              <a class="nav-link" href="/users/sign_out">Log Out</a>
+            </li>
+	    <li class="nav-item">
+              <a class="nav-link" href="/users/sign_in">Log In</a>
+            </li>
+	    <li class="nav-item">
+              <a class="nav-link" href="/users/sign_up">Sign Up</a>
+            </li>
+
+	    
           </ul>
         </div>
       </div>
@@ -52,26 +70,27 @@
     <div class="container">
 
       <!-- Portfolio Item Heading -->
-      <h1 class="my-4">Page Heading
-        <small>Secondary Text</small>
+      <h1 class="my-4">Popular Projects
+        <small>Top 5</small>
       </h1>
 
       <!-- Portfolio Item Row -->
       <div class="row">
 
         <div class="col-md-8">
-          <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+          <img class="img-fluid" src="http://eprojectbuddy.com/wp-content/uploads/2016/06/projects.jpg" alt="">
         </div>
 
         <div class="col-md-4">
+	  <a href = "/proyects/1" >Amazing project </a>
           <h3 class="my-3">Project Description</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+          <p>Welcome to rjcf, here you can fund the projects you want!! just take a look, and register if you want to fund something! Here we are for you.</p>
           <h3 class="my-3">Project Details</h3>
           <ul>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit Amet</li>
-            <li>Consectetur</li>
-            <li>Adipiscing Elit</li>
+            <li>Project amazing</li>
+            <li>Project sad</li>
+            <li>Best project ever</li>
+            <li>Gaming project</li>
           </ul>
         </div>
 
@@ -85,26 +104,30 @@
 
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            <img class="img-fluid" src="http://blog.marketwired.com/wp-content/uploads/2014/04/crowdfunding-500x300.jpg" alt="">
           </a>
+        <a href = "/proyects/2" >Project 1 </a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            <img class="img-fluid" src="http://www.gccoe.com/eductraining/assets/images/courses/project.jpg" alt="">
           </a>
+        <a href = "/proyects/3" >Project 2</a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            <img class="img-fluid" src="https://oax.es/wp-content/uploads/2017/12/Imatge_2-500x300.jpg" alt="">
           </a>
+	<a href = "/proyects/4" >Project 3 </a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            <img class="img-fluid" src="http://obicex.com/wp-content/uploads/2016/04/3-500x300.jpg" alt="">
           </a>
+	<a href = "/proyects/5" >Project 4 </a>
         </div>
 
       </div>
@@ -116,7 +139,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        <p class="m-0 text-center text-white">Copyright &copy; rjcf</p>
       </div>
       <!-- /.container -->
     </footer>
