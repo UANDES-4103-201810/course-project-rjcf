@@ -24,4 +24,20 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <style>
+
+    a {color: white;}
+
+  </style>
+
+  <a>Choose an image for your project</a>
+
+  <%= form_for (@proyect), html: { multipart: true } do |f| %>
+    <p>
+      <%= f.file_field :photo %>
+    </p>
+    <p><%= f.submit "Submit" %></p>
+  <% end %>
+
 <% end %>

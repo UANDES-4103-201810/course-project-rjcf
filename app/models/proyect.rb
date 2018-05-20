@@ -4,5 +4,8 @@ class Proyect < ApplicationRecord
 	 has_many :user_proyects
 	 has_one :category
 	 has_one :promise
+	 has_attached_file :photo
+
+	 validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	
 end
