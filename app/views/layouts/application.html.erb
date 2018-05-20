@@ -1,14 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Courseproject</title>
-    <%= csrf_meta_tags %>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+
+
+
+
+  <title>RJ Crowdfunding</title>
+
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/portfolio-item.css" rel="stylesheet">
+
+  <style>
+
+    body {background-color: #000000;}
+
+    p{ text-align: center;}
+
+    a{ text-align: center;}
+
+    img{ border: 20px solid black;}
+
+  </style>
+
+  <!-- Navigation -->
+
+  <%- if user_signed_in? %>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">RJ CrowdFunding</a>
+        </div>
+        <ul class="nav navbar-nav">
+
+          <li><a class="button" href="/">Home<span class="sr-only">(current)</span></a></li>
+          <li><a class="nav-link" href="/categories">Categories</a></li>
+          <li><a class="nav-link" href="/users">User Profile</a></li>
+          <li><a class="nav-link" href="/wishlists">Wishlist</a></li>
+          <li><a class="nav-link" href="/proyects/new">New Project</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><p>
+            <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+          </p></li>
+          <li><a class="nav-link" href="/users/sign_out">Log Out</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <%else%>
+
+    <nav class = "navbar navbar-default" >
+      <div class ="container-fluid">
+        <div class = "navbar-header" >
+          <a class = "navbar-brand" href = "/" > RJ CrowdFunding </a>
+        </div >
+        <ul class = "nav navbar-nav" >
+
+          <li><a class = "nav-link" href = "/" > Home <span class = "sr-only" > (current) </span></a> </li>
+          <li><a class="nav-link" href="/categories ">Categories</a></li>
+          <li><a class="nav - link" href="/users">User Profile</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p>
+              <a href="#">
+                <span class="glyphicon glyphicon-search"></span>
+              </a> Search
+            </p>
+          </li>
+          <li><a class="nav-link" href="/users/sign_in">Log In</a></li>
+          <li><a class="nav-link" href="/users/sign_up">Sign Up</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <%end%>
+
+</head>
 
   <body>
-    <%= yield %>
+
+  <%= yield %>
+
+
+
   </body>
 </html>

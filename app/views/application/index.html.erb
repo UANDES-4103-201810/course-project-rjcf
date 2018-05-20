@@ -8,11 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-
-
-
-
     <title>RJ Crowdfunding</title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,42 +24,26 @@
   </head>
 
   <body>
-<style>
-body {
-    background-color: #000000;
-}
-</style>
 
-    <!-- Navigation -->
+  <style>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">RJ CrowdFunding</a>
-            </div>
-            <ul class="nav navbar-nav">
+    body {background-color: #000000;}
 
-                <li><a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a></li>
-                <li><a class="nav-link" href="/categories">Categories</a></li>
-                <li><a class="nav-link" href="/users">User Profile</a></li>
-                <li><a class="nav-link" href="/wishlists">wishlist</a></li>
-                <li><a class="nav-link" href="/proyects/new">New Project</a></li>
-                <li><a class="nav-link" href="/users/sign_out">Log Out</a></li>
-                <li><a class="nav-link" href="/users/sign_in">Log In</a></li>
-                <li><a class="nav-link" href="/users/sign_up">Sign Up</a></li>
+    p{ text-align: center;}
 
-            </ul>
-        </div>
-    </nav>
+    a{ text-align: center;}
+
+    img{ border: 20px solid black;}
+
+  </style>
+  <%= yield %>
 
 
     <!-- Page Content -->
     <div class="container">
 
       <!-- Portfolio Item Heading -->
-      <h1 class="my-4">Popular Projects
-        <small>Top 5</small>
-      </h1>
+      <h1 class="my-4">Popular Projects</h1>
 
       <!-- Portfolio Item Row -->
       <div class="row">
@@ -68,7 +53,7 @@ body {
         </div>
 
         <div class="col-md-4">
-	  <a href = "/proyects/1" >Amazing project </a>
+	        <a href = "/proyects/1" >Amazing project </a>
           <h3 class="my-3">Project Description</h3>
           <p>Welcome to rjcf, here you can fund the projects you want!! just take a look, and register if you want to fund something! Here we are for you.</p>
           <h3 class="my-3">Project Details</h3>
@@ -106,14 +91,14 @@ body {
           <a href="#">
             <img class="img-fluid" src="https://oax.es/wp-content/uploads/2017/12/Imatge_2-500x300.jpg" alt="">
           </a>
-	<a href = "/proyects/4" >Project 3 </a>
+	        <a href = "/proyects/4" >Project 3 </a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
             <img class="img-fluid" src="http://obicex.com/wp-content/uploads/2016/04/3-500x300.jpg" alt="">
           </a>
-	<a href = "/proyects/5" >Project 4 </a>
+	        <a href = "/proyects/5" >Project 4 </a>
         </div>
 
       </div>

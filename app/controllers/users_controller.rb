@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  protect_from_forgery prepend: true
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   # GET /users
@@ -7,6 +8,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def hello
+    @user = current_user.user_signed_in?
+  end
   # GET /users/1
   # GET /users/1.json
   def show
