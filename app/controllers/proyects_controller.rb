@@ -4,12 +4,18 @@ class ProyectsController < ApplicationController
   # GET /proyects
   # GET /proyects.json
   def index
-    @proyects = Proyect.all
+    if params[:category_id]
+      @category = Category.find params[:category_id]
+      @proyects = @category.proyects
+    else
+      @proyects = Proyect.all
+    end
   end
 
   # GET /proyects/1
   # GET /proyects/1.json
   def show
+
   end
 
   # GET /proyects/new
@@ -69,6 +75,6 @@ class ProyectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proyect_params
-      params.require(:proyect).permit(:name, :user_id)
+      params.require(:proyect).permit(:name, :user_id, :category_id, :photo)
     end
 end
