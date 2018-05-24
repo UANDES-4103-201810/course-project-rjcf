@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_one :user_role
-  has_many :proyects, through: :user_projects
-  has_many :proyects, through: :user_fund_projects
+  has_many :proyects
+
   
   
   devise :database_authenticatable, :registerable,
