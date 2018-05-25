@@ -1,5 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<style>
+  p {
+    text-align: left;
+    text-color: white;
+    font-size: medium;
+
+  }
+
+  td {
+    align-content: right;
+    font-size: medium;
+  }
+
+   .div-wrapper {
+     position: center;
+     height: 300px;
+     width: 300px;
+
+
+   }
+</style>
+
 <p>
   <strong>Username:</strong>
   <%= @user.username %>
@@ -10,14 +32,10 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= image_tag @user.avatar.url %>
-
+<div class = "div-wrapper">
 <td>Projects Funded</td>
+
+
 <% @user_fund_projects.each do |user_fund_projects| %>
   <% if user_fund_projects.user_id == current_user.id %>
     <% @proyects.each do |proyect| %>
@@ -34,3 +52,9 @@
 <%= link_to 'Back', users_path %>
 
 <%= link_to 'Projects by user', user_proyects_path(@user) %>
+
+
+
+<%= image_tag @user.avatar.url %>
+
+</div>
