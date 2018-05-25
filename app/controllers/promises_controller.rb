@@ -4,7 +4,12 @@ class PromisesController < ApplicationController
   # GET /promises
   # GET /promises.json
   def index
+    if params[:user_id]
+      @user = User.find params[:user_id]
+      @promises = @user.promises
+    else
     @promises = Promise.all
+    end
   end
 
   # GET /promises/1
@@ -69,6 +74,6 @@ class PromisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def promise_params
-      params.require(:promise).permit(:proyect_id, :type, :amount, :include)
+      params.require(:promise).permit(:proyect_id, :tipo, :amount, :include)
     end
 end

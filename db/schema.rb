@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180524223312) do
+ActiveRecord::Schema.define(version: 20180525032927) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20180524223312) do
 
   create_table "promises", force: :cascade do |t|
     t.integer "proyect_id"
-    t.string "type"
     t.integer "amount"
     t.string "include"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tipo"
   end
 
   create_table "proyects", force: :cascade do |t|
