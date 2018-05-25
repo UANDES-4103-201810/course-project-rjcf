@@ -4,19 +4,17 @@ class ProyectsController < ApplicationController
   # GET /proyects
   # GET /proyects.json
   def index
+
     if params[:category_id]
       @category = Category.find params[:category_id]
       @proyects = @category.proyects
-    else
-      @proyects = Proyect.all
-    end
-
-    if params[:user_id]
+    else if params[:user_id]
       @user = User.find params[:user_id]
       @proyects = @user.proyects
     else
       @proyects = Proyect.all
-    end
+         end
+      end
   end
 
   # GET /proyects/1
