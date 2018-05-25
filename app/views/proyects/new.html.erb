@@ -3,3 +3,5 @@
 <%= render 'form', proyect: @proyect %>
 
 <%= link_to 'Back', proyects_path %>
+
+<%= image_tag @proyect.avatar.url(:medium) %>

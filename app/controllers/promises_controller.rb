@@ -10,11 +10,13 @@ class PromisesController < ApplicationController
     else
     @promises = Promise.all
     end
+    @proyect = Proyect.all
   end
 
   # GET /promises/1
   # GET /promises/1.json
   def show
+
   end
 
   # GET /promises/new

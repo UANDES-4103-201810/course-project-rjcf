@@ -1,11 +1,10 @@
 class AddAttachmentPhotoToProyects < ActiveRecord::Migration[5.1]
-  def self.up
-    change_table :proyects do |t|
-      t.attachment :photo
-    end
+  def up
+    add_attachment :users, :photo
   end
 
-  def self.down
-    remove_attachment :proyects, :photo
+  def down
+    remove_attachment :users, :photo
   end
 end
+

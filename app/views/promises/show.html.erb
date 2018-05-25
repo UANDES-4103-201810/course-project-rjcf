@@ -20,5 +20,12 @@
   <%= @promise.include %>
 </p>
 
-<%= link_to 'Edit', edit_promise_path(@promise) %> |
-<%= link_to 'Back', promises_path %>
+<%- if user_signed_in?  %>
+
+  <%- if @proyect.user_id == current_user.id %>
+
+  <%= link_to 'Edit', edit_promise_path(@promise) %> |
+  <%= link_to 'Back', promises_path %>
+
+  <%end%>
+<%end%>

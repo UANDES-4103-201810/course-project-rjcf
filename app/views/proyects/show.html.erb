@@ -9,8 +9,35 @@
   <strong>User:</strong>
   <%= @proyect.user_id %>
 </p>
+<%- if user_signed_in?  and current_user.admin == true %>
 
-<%= link_to 'Edit', edit_proyect_path(@proyect) %> |
-<%= link_to 'Back', proyects_path %>
+  <%= link_to 'Edit', edit_proyect_path(@proyect) %> |
+  <%= link_to 'Back', proyects_path %>
+  <%= link_to 'promises', proyect_promises_path(@proyect) %>
+  <%= image_tag @proyect.avatar.url(:medium) %>
 
-<%= link_to 'promises', proyect_promises_path(@proyect) %>
+<%- else if user_signed_in?  %>
+
+  <%- if @proyect.user_id == current_user.id %>
+
+    <%= link_to 'Edit', edit_proyect_path(@proyect) %> |
+    <%= link_to 'Back', proyects_path %>
+    <%= link_to 'promises', proyect_promises_path(@proyect) %>
+    <%= image_tag @proyect.avatar.url(:medium) %>
+
+  <%else%>
+
+    <%= image_tag @proyect.avatar.url(:medium) %>
+    <%= link_to 'promises', proyect_promises_path(@proyect) %>
+
+  <%end%>
+
+<%else%>
+
+
+  <%= image_tag @proyect.avatar.url(:medium) %>
+  <%= link_to 'promises', proyect_promises_path(@proyect) %>
+
+
+<%end%>
+<%end%>

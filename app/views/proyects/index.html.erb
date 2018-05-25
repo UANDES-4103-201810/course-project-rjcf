@@ -2,6 +2,9 @@
 
 <h1>Proyects</h1>
 
+
+<%- if user_signed_in?  and current_user.admin == true %>
+
 <table>
   <thead>
     <tr>
@@ -24,6 +27,67 @@
   </tbody>
 </table>
 
+  <%= link_to 'New Proyect', new_proyect_path %>
+
+<%- else if user_signed_in?  %>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @proyects.each do |proyect| %>
+    <%- if proyect.user_id == current_user.id %>
+      <tr>
+        <td><%= proyect.name %></td>
+        <td><%= proyect.user_id %></td>
+        <td><%= link_to 'Show', proyect %></td>
+        <td><%= link_to 'Edit', edit_proyect_path(proyect) %></td>
+        <td><%= link_to 'Destroy', proyect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%else%>
+      <tr>
+        <td><%= proyect.name %></td>
+        <td><%= proyect.user_id %></td>
+        <td><%= link_to 'Show', proyect %></td>
+    <%end%>
+    <%end%>
+    </tbody>
+  </table>
+
+    <%= link_to 'New Proyect', new_proyect_path %>
+
+<%else%>
+
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @proyects.each do |proyect| %>
+      <tr>
+        <td><%= proyect.name %></td>
+        <td><%= proyect.user_id %></td>
+        <td><%= link_to 'Show', proyect %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+<%end%>
+<%end%>
+
 <br>
 
-<%= link_to 'New Proyect', new_proyect_path %>
+

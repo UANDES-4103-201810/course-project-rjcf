@@ -6,26 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Proyect.create(name: 'AmazingProject', user_id: 1)
-Proyect.create(name: 'hola', user_id: 1)
-Proyect.create(name: 'rape', user_id: 1)
-Proyect.create(name: 'chao', user_id: 1)
-
-Category.create(name: 'Amazing', proyect_id: 1)
-Category.create(name: 'Healthy', proyect_id: 1)
-
-UserFundProject.create(user_id: 1, proyect_id: 1)
-UserFundProject.create(user_id: 1, proyect_id: 2)
-UserFundProject.create(user_id: 3, proyect_id: 1)
-UserFundProject.create(user_id: 4, proyect_id: 1)
-
-UserRole.create(type: 'admin', user_id: 1)
-UserRole.create(type: 'guest', user_id: 2)
-UserRole.create(type: 'guest', user_id: 3)
-UserRole.create(type: 'guest', user_id: 4)
 
 
+User.create(username: 'administrador', email: 'admin@gmail.cl', password: 'holahola', admin: true)
 
-Wishlist.create(proyect_id: 1)
-Wishlist.create(proyect_id: 2)
 
