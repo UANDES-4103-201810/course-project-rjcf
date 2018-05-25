@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
   <title>RJ Crowdfunding</title>
 
@@ -26,11 +27,62 @@
 
     img{ border: 20px solid black;}
 
+    .navbar-default{
+      background-color: white;
+      border: none;
+      }
+
+    .search-box{
+      position: absolute;
+      top: 8%;
+      left: 90%;
+      transform: translate(-90%,-10%);
+      background: white;
+      height: 40px;
+      border-radius: 40px;
+      padding: 10px;}
+
+    .search-box:hover > .search-txt{
+      width: 240px;
+      padding: 0 6px;
+    }
+
+    .search-box:hover > .search-btn{
+      background: grey;
+    }
+
+    .search-btn{
+      position: absolute;
+      top: 15%;
+      left: 90%;
+      color: white;
+      float: right;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.4s;}
+
+    .search-txt{
+      border: none;
+      background: none;
+      outline: none;
+      float: left;
+      padding: 0;
+      color: black;
+      font-size: 16px;
+      transition: 0.4s;
+      line-height: 40px;
+      width: 0px;}
+
   </style>
 
   <!-- Navigation -->
 
-  <%- if user_signed_in? %>
+  <%- if user_signed_in?  and current_user.admin == true %>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -43,17 +95,21 @@
           <li><%= link_to "Profile", current_user %></li>
           <li><a class="nav-link" href="/wishlists">Wishlist</a></li>
           <li><a class="nav-link" href="/proyects/new">New Project</a></li>
+          <li><a class="nav-link" href="/proyects">All Projects</a></li>
+          <li><a class="nav-link" href="/categories">Edit Categories</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><p>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-search"></span> Search
-            </button>
-          </p></li>
+          <div class = "search-box">
+            <input class="search-txt" type="text"  name="" placeholder="Type to search">
+            <a class="search-btn" href="#">
+            <i class="fas fa-search"></i>
+            </a>
+          </div>
           <li><a class="nav-link" href="/users/sign_out">Log Out</a></li>
         </ul>
       </div>
     </nav>
+
 
   <%else%>
 
@@ -65,17 +121,15 @@
         <ul class = "nav navbar-nav" >
 
           <li><a class = "nav-link" href = "/" > Home <span class = "sr-only" > (current) </span></a> </li>
-          <li><a class="nav-link" href="/categories ">Categories</a></li>
-          <li><a class="nav - link" href="/users">User Profile</a></li>
+          <li><a class="nav-link" href="/categories">Categories</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <p>
-              <a href="#">
-                <span class="glyphicon glyphicon-search"></span>
-              </a> Search
-            </p>
-          </li>
+          <div class = "search-box">
+            <input class="search-txt" type="text"  name="" placeholder="Type to search">
+            <a class="search-btn" href="#">
+              <i class="fas fa-search"></i>
+            </a>
+          </div>
           <li><a class="nav-link" href="/users/sign_in">Log In</a></li>
           <li><a class="nav-link" href="/users/sign_up">Sign Up</a></li>
         </ul>
