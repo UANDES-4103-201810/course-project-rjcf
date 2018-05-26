@@ -17,6 +17,19 @@
 
 <%= image_tag @user.avatar.url %>
 
+<td>Projects Funded</td>
+<% @user_fund_projects.each do |user_fund_projects| %>
+  <% if user_fund_projects.user_id == current_user.id %>
+    <% @proyects.each do |proyect| %>
+      <% if proyect.id == user_fund_projects.proyect_id %>
+        <td><%= proyect.name %></td>
+        <td><%= proyect.user_id %></td>
+
+    <%end %>
+  <% end %>
+<% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 

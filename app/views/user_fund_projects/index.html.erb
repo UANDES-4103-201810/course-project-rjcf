@@ -15,7 +15,6 @@
   <tbody>
     <% @user_fund_projects.each do |user_fund_project| %>
       <tr>
-        <td><%= user_fund_project.type %></td>
         <td><%= user_fund_project.user_id %></td>
         <td><%= user_fund_project.proyect_id %></td>
         <td><%= link_to 'Show', user_fund_project %></td>

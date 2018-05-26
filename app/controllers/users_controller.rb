@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @proyects = Proyect.all
+
   end
 
   def hello
@@ -14,6 +16,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user_fund_projects = UserFundProject.all
+    @proyects = Proyect.all
   end
 
   # GET /users/new

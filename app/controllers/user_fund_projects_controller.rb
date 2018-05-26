@@ -5,6 +5,7 @@ class UserFundProjectsController < ApplicationController
   # GET /user_fund_projects.json
   def index
     @user_fund_projects = UserFundProject.all
+
   end
 
   # GET /user_fund_projects/1
@@ -69,6 +70,6 @@ class UserFundProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_fund_project_params
-      params.require(:user_fund_project).permit(:type, :user_id, :proyect_id)
+      params.require(:user_fund_project).permit(:amount, :user_id, :proyect_id)
     end
 end
