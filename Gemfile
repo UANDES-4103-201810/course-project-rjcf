@@ -8,7 +8,9 @@ end
 gem 'devise'
 gem 'bootstrap','~> 4.1.1'
 gem 'jquery-rails'
-
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'paperclip', '~> 6.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
