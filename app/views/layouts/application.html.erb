@@ -164,6 +164,23 @@
   <%end%>
   <%end%>
 
+  <% if flash[:notice]%>
+    <div class="alert alert-success">
+      <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+  <% elsif flash[:alert]%>
+    <div class="alert alert-success">
+      <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+      <%= flash[:alert] %>
+    </div>
+  <% elsif flash[:error]%>
+    <div class="alert alert-success">
+      <button type="button" class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+      <%= flash[:error] %>
+    </div>
+  <%end%>
+
 </head>
 
   <body>
