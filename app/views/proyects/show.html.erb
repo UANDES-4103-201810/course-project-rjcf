@@ -96,9 +96,15 @@
         }
     }
 </script>
+
+  <%- if @proyect.preamount == nil %>
+      <% @proyect.update_attribute(:preamount, 0) %>
+  <% end %>
+  <%- if @proyect.amount == nil %>
+      <% @proyect.update_attribute(:amount, 0) %>
+  <% end %>
   <% @proyect.update_attribute(:amount, @proyect.amount - @proyect.preamount) %>
   <h5> TO GO TO FUND <%= @proyect.amount  %> </h5>
-
   <%= form_for @proyect do |f| %>
     <%= f.number_field :preamount, :value => 0 %>
     <%= f.submit "FUND" %>
