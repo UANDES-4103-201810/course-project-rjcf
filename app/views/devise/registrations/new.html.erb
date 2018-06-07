@@ -1,60 +1,45 @@
-<h2>Sign up</h2>
+<div id="login-box" xmlns="http://www.w3.org/1999/html">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="left">
+      <h1>Sign up</h1>
+      <div class="field" , type="text">
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+        <a href="/users/sign_in" class="btn btn-default" type="submit">Log in</a>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-
-
-
-
-
-<div id="login-box">
-  <div class="left">
-    <h1>Sign up</h1>
-
-
-    <input type="text" name="email" placeholder="E-mail" >
-    </input>
-    <input type="password" name="password" placeholder="Password" />
-    <input type="password" name="password2" placeholder="Retype password" />
-
-    <input type="submit" name="signup_submit" value="Sign me up" />
-  </div>
-
-  <div class="right">
-    <span class="loginwith">Sign in with<br />social network</span>
-
-    <button class="social-signin facebook">Log in with facebook</button>
-  </div>
-  <div class="or">OR</div>
+    <div class="right">
+      <span class="loginwith">Sign in with<br />social network</span>
+      <a href="/users/auth/facebook" class="btn btn-default" name="social-signin facebook">Log in with facebook</a>
+    </div>
+    <div class="or">OR</div>
 </div>
 
 <% end %>
 
 
 
-<%= render "devise/shared/links" %>
+
 
 
 <style>
@@ -78,8 +63,8 @@ font-weight: 300;
 #login-box {
 position: relative;
 margin: 5% auto;
-width: 600px;
-height: 400px;
+width: 650px;
+height: 450px;
 background: #FFF;
 border-radius: 2px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -101,7 +86,7 @@ font-weight: 300;
 font-size: 28px;
 }
 
-input[type="text"],
+input[type="email"],
 input[type="password"] {
 display: block;
 box-sizing: border-box;
@@ -117,7 +102,7 @@ font-size: 15px;
 transition: 0.2s ease;
 }
 
-input[type="text"]:focus,
+input[type="email"]:focus,
 input[type="password"]:focus {
 border-bottom: 2px solid #16a085;
 color: #16a085;
@@ -125,7 +110,7 @@ transition: 0.2s ease;
 }
 
 input[type="submit"] {
-margin-top: 28px;
+margin-top: 20px;
 width: 120px;
 height: 32px;
 background: #16a085;
@@ -172,8 +157,8 @@ right: 0;
 box-sizing: border-box;
 padding: 40px;
 width: 300px;
-height: 400px;
-background: url('https://goo.gl/YbktSj');
+height: 450px;
+background-color: #8b9dc3 ;
 background-size: cover;
 background-position: center;
 border-radius: 0 2px 2px 0;
@@ -181,13 +166,13 @@ border-radius: 0 2px 2px 0;
 
 .right .loginwith {
 display: block;
-margin-bottom: 40px;
+margin-bottom: 110px;
 font-size: 28px;
 color: #FFF;
 text-align: center;
 }
 
-button.social-signin {
+a[name="social-signin facebook"] {
 margin-bottom: 20px;
 width: 220px;
 height: 36px;
@@ -200,18 +185,18 @@ transition: 0.2s ease;
 cursor: pointer;
 }
 
-button.social-signin:hover,
-button.social-signin:focus {
+a[name="social-signin facebook"]:hover,
+a[name="social-signin facebook"]:focus {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 transition: 0.2s ease;
 }
 
-button.social-signin:active {
+a[name="social-signin facebook"]:active {
 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 transition: 0.2s ease;
 }
 
-button.social-signin.facebook {
+a[name="social-signin facebook"] {
 background: #32508E;
 }
 
