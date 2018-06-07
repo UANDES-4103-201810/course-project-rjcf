@@ -67,6 +67,7 @@
 <title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <body>
 <div class="w3-container">
 
@@ -77,11 +78,6 @@
   </div>
   <br>
   <button class="w3-button w3-green" onclick="move()">FUND Me</button>
-
-</div>
-
-<h2>Amount To Go</h2>
-
 
 
 <script>
@@ -100,6 +96,13 @@
         }
     }
 </script>
+  <% @proyect.update_attribute(:amount, @proyect.amount - @proyect.preamount) %>
+  <h5> TO GO TO FUND <%= @proyect.amount  %> </h5>
+
+  <%= form_for @proyect do |f| %>
+    <%= f.number_field :preamount, :value => 0 %>
+    <%= f.submit "FUND" %>
+  <% end %>
 
 </body>
 

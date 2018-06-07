@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606184850) do
+ActiveRecord::Schema.define(version: 20180607020800) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180606184850) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer "amount"
+    t.integer "preamount"
   end
 
   create_table "user_fund_projects", force: :cascade do |t|
