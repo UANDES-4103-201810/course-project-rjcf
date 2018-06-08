@@ -1,6 +1,10 @@
+<% if @proyects.blank? %>
+  <div class="alert alert-warning"> Sorry, there are no projects matching your search
+    <button type="button" class="close" onclick="this.parentElement.style.display='none';" >&times;</button>
+  </div>
+<% end %>
 
 <h1>Proyects</h1>
-
 
 <%- if user_signed_in?  and current_user.admin == true %>
 

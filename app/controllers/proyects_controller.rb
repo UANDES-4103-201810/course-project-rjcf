@@ -13,8 +13,16 @@ class ProyectsController < ApplicationController
       @proyects = @user.proyects
     else
       @proyects = Proyect.all
-         end
-      end
+       end
+    end
+
+    @proyects = Proyect.all
+    if params[:search]
+      @proyects = Proyect.search(params[:search]).order("created_at DESC")
+    else
+      @proyects = Proyect.all.order("created_at DESC")
+      flash[:alert] = "There are no projects that matches your search"
+    end
   end
 
   # GET /proyects/1
@@ -80,6 +88,6 @@ class ProyectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proyect_params
-      params.require(:proyect).permit(:name, :user_id, :category_id, :avatar, :amount, :preamount, :fixedamount)
+      params.require(:proyect).permit(:name, :user_id, :category_id, :avatar, :amount, :preamount, :fixedamount, :description)
     end
 end
