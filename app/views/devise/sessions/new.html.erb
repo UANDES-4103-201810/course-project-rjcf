@@ -21,7 +21,7 @@
       <% end -%>
 
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "Log in" , :class => "Login"%>
         <a href="/users/sign_up" class="btn btn-default" type="submit">Sign Up</a>
         <h1> </h1>
         <a href="/users/password/new"  type="submit">Forgot Your Password?</a>
@@ -107,7 +107,7 @@
     transition: 0.2s ease;
   }
 
-  input[type="submit"] {
+  input[class="Login"] {
     margin-top: 20px;
     width: 120px;
     height: 32px;
@@ -122,14 +122,14 @@
     cursor: pointer;
   }
 
-  input[type="submit"]:hover,
-  input[type="submit"]:focus {
+  input[class="Login"]:hover,
+  input[class="Login"]:focus {
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
   }
 
-  input[type="submit"]:active {
+  input[class="Login"]:active {
     opacity: 1;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
