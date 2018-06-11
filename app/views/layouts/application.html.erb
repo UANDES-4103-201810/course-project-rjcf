@@ -8,6 +8,10 @@
   <meta name="author" content="">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
   <title>RJ Crowdfunding</title>
 
   <%= csrf_meta_tags %>
@@ -27,15 +31,10 @@
 
     img{ border: 20px solid black;}
 
-    .navbar-default{
-      background-color: white;
-      border: none;
-      }
-
     .search-box{
       position: absolute;
       top: 8%;
-      left: 90%;
+      left: 86%;
       transform: translate(-90%,-10%);
       background: white;
       height: 40px;
@@ -77,6 +76,12 @@
       transition: 0.4s;
       line-height: 40px;
       width: 0px;}
+
+    /* Add a black background color to the top navigation */
+    .navbar-default{
+      background-color: #FFFFFF;
+      overflow: hidden;
+    }
 
   </style>
 
@@ -151,8 +156,8 @@
               <%= submit_tag "Search", :name => nil, :class => "search-btn" %>
             <% end %>
 
-          <li><a class="nav-link" href="/users/sign_in">Log In</a></li>
-          <li><a class="nav-link" href="/users/sign_up">Sign Up</a></li>
+          <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
         </ul>
       </div>
     </nav>
@@ -176,7 +181,6 @@
       <%= flash[:error] %>
     </div>
   <%end%>
-
 
 </head>
 
