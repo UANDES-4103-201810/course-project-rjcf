@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Report
+Done
 
-* Ruby version
+1. System Access
+2. Registration
+3. User administration
+4. User profile
+5. Project administration
+6. Project search
+7. Funding, but we can't check who funded.
+8. Platform feedback
+9. Report
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
