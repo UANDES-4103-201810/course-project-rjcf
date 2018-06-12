@@ -26,31 +26,31 @@
   }
 </style>
 
+<div class="container-fluid" style="width: 100% ;display:table;">
+  <div  style="display:table-cell;  ">
 <p>
-  <strong>Name:</strong>
-  <%= @proyect.name %>
+  <h1> <%= @proyect.name.capitalize %> </h1>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>By User:</strong>
   <%= @proyect.user_id %>
 </p>
 
 <div class = "div-wrapper">
 <%- if user_signed_in?  and current_user.admin == true %>
 
-  <%= link_to 'Edit', edit_proyect_path(@proyect) %> |
-  <%= link_to 'Back', proyects_path %>
-  <%= link_to 'promises', proyect_promises_path(@proyect) %>
+
   <%= image_tag @proyect.avatar.url(:medium) %>
+    <%= link_to 'Edit', edit_proyect_path(@proyect) %> |
+    <%= link_to 'Back', proyects_path %>
+    <%= link_to 'promises', proyect_promises_path(@proyect) %>
 
 <%- else if user_signed_in?  %>
 
   <%- if @proyect.user_id == current_user.id %>
 
-    <%= link_to 'Edit', edit_proyect_path(@proyect) %> |
-    <%= link_to 'Back', proyects_path %>
-    <%= link_to 'promises', proyect_promises_path(@proyect) %>
+
     <%= image_tag @proyect.avatar.url(:medium) %>
 
   <%else%>
@@ -70,7 +70,8 @@
 
 <%end%>
 <%end%>
-
+  </div>
+  <div  style="display:table-cell;">
 <title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -129,7 +130,10 @@
 
 
 </div>
-
 </body>
+  </div>
+</div>
+
+
 
 </html>
