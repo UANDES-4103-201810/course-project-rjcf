@@ -102,12 +102,14 @@
           <li><a class="nav-link" href="/proyects/new">New Project</a></li>
           <li><a class="nav-link" href="/proyects">All Projects</a></li>
           <li><a class="nav-link" href="/categories">Edit Categories</a></li>
+          <li><a> User Name: <%= current_user.username.capitalize %></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <%= form_tag(proyects_path, :method => "get", id: "search-form", :class => "search-box") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Projects" , :class => "search-txt" %>
             <%= submit_tag "Search", :name => nil, :class => "search-btn" %>
-          <% end %>
+
+        <% end %>
           <li><a class="nav-link" href="/users/sign_out">Log Out</a></li>
         </ul>
       </div>
@@ -126,11 +128,13 @@
           <li><%= link_to "Profile", current_user %></li>
           <li><a class="nav-link" href="/wishlists">Wishlist</a></li>
           <li><a class="nav-link" href="/proyects/new">New Project</a></li>
+          <li><a> User Name: <%= current_user.username.capitalize %></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <%= form_tag(proyects_path, :method => "get", id: "search-form", :class => "search-box") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Projects" , :class => "search-txt" %>
             <%= submit_tag "Search", :name => nil, :class => "search-btn" %>
+
           <% end %>
           <li><a class="nav-link" href="/users/sign_out">Log Out</a></li>
         </ul>
