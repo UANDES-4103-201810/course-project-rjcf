@@ -12,6 +12,8 @@ gem 'therubyracer'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 6.0.0'
+gem 'cancancan', '~> 2.0'
+gem 'redcarpet'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

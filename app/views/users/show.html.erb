@@ -21,6 +21,8 @@
    }
 </style>
 
+<%= raw Markdown.new(@user.biography).to_html %>
+
 <p>
   <strong>Username:</strong>
   <%= @user.username %>

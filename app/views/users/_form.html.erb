@@ -31,7 +31,12 @@
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.text_area :password, id: :user_password %>
+    <%= form.text_field :password, id: :user_password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :biography %>
+    <%= form.text_area :biography, id: :user_biography %>
   </div>
 
   <div class="actions">
