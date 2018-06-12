@@ -102,7 +102,8 @@
           <li><a class="nav-link" href="/proyects/new">New Project</a></li>
           <li><a class="nav-link" href="/proyects">All Projects</a></li>
           <li><a class="nav-link" href="/categories">Edit Categories</a></li>
-          <li><a> User Name: <%= current_user.username.capitalize %></a></li>
+          <li><a class="nav-link" href="/users">All Users</a></li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <%= form_tag(proyects_path, :method => "get", id: "search-form", :class => "search-box") do %>
@@ -188,7 +189,7 @@
 
 </head>
 
-  <body>
+  <body class="container">
 
 
   <script>

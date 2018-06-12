@@ -2,11 +2,10 @@
 
 <h1>Promises</h1>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Proyect</th>
-      <th>Type</th>
       <th>Amount</th>
       <th>Include</th>
       <th colspan="3"></th>
@@ -15,44 +14,13 @@
 
   <tbody>
 
-  <%- if user_signed_in?  %>
-    <%- @proyect.each do |proyect| %>
-      <%- if proyect.user_id == current_user.id  %>
-        <% @promises.each do |promise| %>
-          <tr>
-            <td><%= promise.proyect_id %></td>
-            <td><%= promise.tipo %></td>
-            <td><%= promise.amount %></td>
-            <td><%= promise.include %></td>
-            <td><%= link_to 'Show', promise %></td>
-            <td><%= link_to 'Edit', edit_promise_path(promise) %></td>
-            <td><%= link_to 'Destroy', promise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <%end%>
-      <%else%>
-        <% @promises.each do |promise| %>
-          <tr>
-            <td><%= promise.proyect_id %></td>
-            <td><%= promise.tipo %></td>
-            <td><%= promise.amount %></td>
-            <td><%= promise.include %></td>
-            <a>hola</a>
-            <td><%= link_to 'Show', promise %></td>
-          </tr>
-        <% end %>
-      <%end%>
-      <%end%>
-  <%else%>
     <% @promises.each do |promise| %>
       <tr>
         <td><%= promise.proyect_id %></td>
-        <td><%= promise.tipo %></td>
         <td><%= promise.amount %></td>
         <td><%= promise.include %></td>
-        <td><%= link_to 'Show', promise %></td>
       </tr>
     <% end %>
-  <%end%>
 
   </tbody>
 </table>

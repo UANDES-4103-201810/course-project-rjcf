@@ -21,11 +21,19 @@ class PromisesController < ApplicationController
 
   # GET /promises/new
   def new
+    @user = current_user
+    if not user_signed_in?
+      render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+    end
     @promise = Promise.new
   end
 
   # GET /promises/1/edit
   def edit
+    @user = current_user
+    if not user_signed_in?
+      render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+    end
   end
 
   # POST /promises
