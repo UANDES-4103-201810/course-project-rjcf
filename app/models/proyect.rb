@@ -2,6 +2,7 @@ class Proyect < ApplicationRecord
 	 has_many :users , through: :user_proyects 
 	 has_many :users , through: :user_fund_projects
 	 has_many :user_proyects
+	 has_many :user_fund_proyect
 	 belongs_to :category
 	 has_one :promise
 	 has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

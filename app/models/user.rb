@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :user_role
   has_many :proyects
+  has_many :user_fund_proyect
 
   devise :database_authenticatable , :registerable , :recoverable , :rememberable , :trackable , :validatable ,
          :omniauthable , :omniauth_providers => [:facebook]

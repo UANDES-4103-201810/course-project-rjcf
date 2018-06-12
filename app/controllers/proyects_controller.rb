@@ -1,5 +1,6 @@
 class ProyectsController < ApplicationController
   before_action :set_proyect, only: [:show, :edit, :update, :destroy]
+  helper_method :UFP
 
   # GET /proyects
   # GET /proyects.json
@@ -31,6 +32,7 @@ class ProyectsController < ApplicationController
 
   end
 
+
   # GET /proyects/new
   def new
     @proyect = Proyect.new
@@ -44,6 +46,7 @@ class ProyectsController < ApplicationController
   # POST /proyects.json
   def create
     @proyect = Proyect.new(proyect_params)
+    @proyect.user = current_user
 
     respond_to do |format|
       if @proyect.save
@@ -59,8 +62,10 @@ class ProyectsController < ApplicationController
   # PATCH/PUT /proyects/1
   # PATCH/PUT /proyects/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @proyect.update(proyect_params)
+        UfpMailer.with(user: @user).ufp.deliver_now
         format.html { redirect_to @proyect, notice: 'Proyect was successfully updated.' }
         format.json { render :show, status: :ok, location: @proyect }
       else
