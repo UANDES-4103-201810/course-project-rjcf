@@ -129,7 +129,7 @@
           <li><%= link_to "Profile", current_user %></li>
           <li><a class="nav-link" href="/wishlists">Wishlist</a></li>
           <li><a class="nav-link" href="/proyects/new">New Project</a></li>
-          <li><a> User Name: <%= current_user.username.capitalize %></a></li>
+          <li><a> User Name: <%= current_user.username %></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <%= form_tag(proyects_path, :method => "get", id: "search-form", :class => "search-box") do %>

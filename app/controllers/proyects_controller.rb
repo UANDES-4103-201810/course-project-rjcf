@@ -13,13 +13,14 @@ class ProyectsController < ApplicationController
       else if params[:category_id]
         @category = Category.find params[:category_id]
         @proyects = @category.proyects
+
       else if params[:user_id]
-             @user = User.find params[:user_id]
-             @proyects = @user.proyects
-           else
-             @proyects = Proyect.all
-             flash[:alert] = "There are no projects that matches your search"
-           end
+         @user = User.find params[:user_id]
+         @proyects = @user.proyects
+
+       else
+         @proyects = Proyect.all
+       end
       end
     end
   end
