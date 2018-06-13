@@ -42,32 +42,27 @@
 
 
   <%= image_tag @proyect.avatar.url(:medium) %>
+    <br>
     <%= link_to 'Edit', edit_proyect_path(@proyect) %> |
-    <%= link_to 'Back', proyects_path %>
-    <%= link_to 'promises', proyect_promises_path(@proyect) %>
+    <%= link_to 'Promises', proyect_promises_path(@proyect) %>
 
 <%- else if user_signed_in?  %>
 
   <%- if @proyect.user_id == current_user.id %>
-
-
     <%= image_tag @proyect.avatar.url(:medium) %>
-
   <%else%>
-
     <%= image_tag @proyect.avatar.url(:medium) %>
-    <%= link_to 'promises', proyect_promises_path(@proyect) %>
+        <br>
+    <%= link_to 'Promises', proyect_promises_path(@proyect) %>
 
   <%end%>
 
 <%else%>
 </div>
-
-
   <%= image_tag @proyect.avatar.url(:medium) %>
-  <%= link_to 'promises', proyect_promises_path(@proyect) %>
-
-
+      <br>
+  <h4><%= link_to 'Promises', proyect_promises_path(@proyect) %></h4>
+      <h4> <%= link_to 'Back', proyects_path %></h4>
 <%end%>
 <%end%>
   </div>
@@ -122,10 +117,11 @@
       document.getElementById("prg").style = "width:" + porcentaje(<%= @proyect.fixedamount %>, <%= @proyect.fixedamount %> - <%= @proyect.amount %>) + "%";
       document.getElementById("prg").innerHTML =  Math.round(porcentaje(<%= @proyect.fixedamount %>, <%= @proyect.fixedamount %> - <%= @proyect.amount %>)) + "% Funded";
   </script>
-
+<% if user_signed_in? %>
   <%= form_for @proyect do |f| %>
     <%= f.number_field :preamount, :value => 0 %>
     <%= f.submit "FUND" %>
+  <% end %>
   <% end %>
 
 

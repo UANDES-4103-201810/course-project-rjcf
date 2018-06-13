@@ -5,7 +5,6 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Proyect</th>
       <th>Amount</th>
       <th>Include</th>
       <th colspan="3"></th>
@@ -13,15 +12,13 @@
   </thead>
 
   <tbody>
-
-    <% @promises.each do |promise| %>
-      <tr>
-        <td><%= promise.proyect_id %></td>
-        <td><%= promise.amount %></td>
-        <td><%= promise.include %></td>
-      </tr>
-    <% end %>
-
+        <% @promises.each do |promise| %>
+          <tr>
+            <td><%= promise.amount %></td>
+            <td><%= promise.include %></td>
+            <td><%= link_to 'Show', promise %></td>
+          </tr>
+        <% end %>
   </tbody>
 </table>
 

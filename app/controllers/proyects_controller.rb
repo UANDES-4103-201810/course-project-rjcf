@@ -6,23 +6,21 @@ class ProyectsController < ApplicationController
   # GET /proyects.json
   def index
 
-    if params[:category_id]
-      @category = Category.find params[:category_id]
-      @proyects = @category.proyects
-    else if params[:user_id]
-      @user = User.find params[:user_id]
-      @proyects = @user.proyects
-    else
-      @proyects = Proyect.all
-       end
-    end
-
     @proyects = Proyect.all
     if params[:search]
       @proyects = Proyect.search(params[:search]).order("created_at DESC")
-    else
-      @proyects = Proyect.all.order("created_at DESC")
-      flash[:alert] = "There are no projects that matches your search"
+
+      else if params[:category_id]
+        @category = Category.find params[:category_id]
+        @proyects = @category.proyects
+      else if params[:user_id]
+             @user = User.find params[:user_id]
+             @proyects = @user.proyects
+           else
+             @proyects = Proyect.all
+             flash[:alert] = "There are no projects that matches your search"
+           end
+      end
     end
   end
 
@@ -62,7 +60,6 @@ class ProyectsController < ApplicationController
   # POST /proyects.json
   def create
     @proyect = Proyect.new(proyect_params)
-    @proyect.user = current_user
 
     respond_to do |format|
       if @proyect.save
