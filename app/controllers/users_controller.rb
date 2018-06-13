@@ -32,6 +32,15 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    @user = current_user
+    if not user_signed_in?
+      render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+    end
+    if user_signed_in?
+      if not @user.admin
+        render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+      end
+    end
     @user = User.new
   end
 

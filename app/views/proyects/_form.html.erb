@@ -44,15 +44,12 @@
   </style>
 
   <a>Choose an image for your project</a>
-
   <div class="field">
     <%= form.file_field :avatar %>
-
-    <% if @proyect.avatar? %>
+    <% if @proyect.avatar? %>x
       <%= image_tag @proyect.avatar.url(:thumb) %>
     <% end %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
