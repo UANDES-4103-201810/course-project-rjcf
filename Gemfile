@@ -22,7 +22,7 @@ gem 'rails', '~> 5.1.4'
     gem 'sqlite3'
   end
   group :production do  # Added postgres and made it production only.
-    gem 'pg', '~> 0.20'
+    gem 'pg', '~> 1.0'
   end
     gem 'rails_12factor'
   
