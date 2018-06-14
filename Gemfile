@@ -21,9 +21,9 @@ gem 'rails', '~> 5.1.4'
   group :development, :test do  # Added development group.
     gem 'sqlite3'
   end
-  group :production do  # Added postgres and made it production only.
+  #group :production do  # Added postgres and made it production only.
     gem 'pg', '~> 1.0'
-  end
+  #end
     gem 'rails_12factor'
   
 # Use Puma as the app server
