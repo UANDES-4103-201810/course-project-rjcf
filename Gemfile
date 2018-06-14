@@ -18,8 +18,14 @@ gem 'redcarpet'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+  # Use sqlite3 as the database for Active Record
+  group :development, :test do  # Added development group.
+    gem 'sqlite3'
+  end
+  group :production do  # Added postgres and made it production only.
+    gem 'pg'
+  end
+  gem 'rails_12factor'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
