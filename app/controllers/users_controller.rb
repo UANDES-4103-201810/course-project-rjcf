@@ -6,6 +6,15 @@ load_and_authorize_resource
   # GET /users
   # GET /users.json
   def index
+   @user = current_user
+    if not user_signed_in?
+      render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+    end
+   if user_signed_in?
+      if not @user.admin
+        render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+      end
+    end
     @users = User.all
     @proyects = Proyect.all
 
