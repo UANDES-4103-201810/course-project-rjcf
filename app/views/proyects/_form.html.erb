@@ -1,57 +1,208 @@
-<%= form_with(model: proyect, local: true) do |form| %>
-  <% if proyect.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(proyect.errors.count, "error") %> prohibited this proyect from being saved:</h2>
+<style>
 
-      <ul>
-      <% proyect.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :proyect_name %>
-  </div>
+  *:focus {
+    outline: none;
+  }
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :proyect_user_id %>
-  </div>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #5a6268;
+    font-size: 16px;
+    color: #222;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.number_field :category_id, id: :proyect_category_id %>
-  </div>
+  #login-box {
+    position: relative;
+    margin: 5% auto;
+    width: 650px;
+    height: 450px;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount, id: :proyect_amount_id %>
-  </div>
+  .left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+  }
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :proyect_description_id %>
-  </div>
+  h1 {
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+  }
+
+  input[class="email-btn"],
+  input[type="password"] {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 220px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s ease;
+  }
+
+  input[class="email-btn"]:focus,
+  input[type="password"]:focus {
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
+    transition: 0.2s ease;
+  }
+
+  input[class="Signup"]{
+    margin-top: 390px;
+    margin-left: 80px;
+    width: 140px;
+    height: 32px;
+    background: #16a085;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+  }
+
+  input[class="Signup"]:hover,
+  input[class="Signup"]:focus{
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+  }
+
+  input[class="Signup"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+  }
 
 
-  <style>
+  .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 450px;
+    background-color: black ;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 2px 2px 0;
+  }
 
-    a {color: white;}
+  .right .loginwith {
+    display: block;
+    margin-bottom: 110px;
+    font-size: 28px;
+    color: #FFF;
+    text-align: center;
+  }
 
-  </style>
+  a[name="social-signin facebook"] {
+    margin-bottom: 20px;
+    width: 220px;
+    height: 36px;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    transition: 0.2s ease;
+    cursor: pointer;
+  }
 
-  <a>Choose an image for your project</a>
-  <div class="field">
-    <%= form.file_field :avatar %>
-    <% if @proyect.avatar? %>x
-      <%= image_tag @proyect.avatar.url(:thumb) %>
+  a[name="social-signin facebook"]:hover,
+  a[name="social-signin facebook"]:focus {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.2s ease;
+  }
+
+  a[name="social-signin facebook"]:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.2s ease;
+  }
+
+  a[name="social-signin facebook"] {
+    background: #32508E;
+  }
+
+</style>
+
+
+<div id="login-box" xmlns="http://www.w3.org/1999/html">
+  <%= form_with(model: proyect, local: true) do |form| %>
+    <% if proyect.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(proyect.errors.count, "error") %> prohibited this proyect from being saved:</h2>
+
+        <ul>
+        <% proyect.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
+    <div class="left">
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :proyect_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :user_id %>
+        <%= form.number_field :user_id, id: :proyect_user_id %>
+      </div>
+
+      <div class="field">
+        <%= form.label :category_id %>
+        <%= form.number_field :category_id, id: :proyect_category_id %>
+      </div>
+
+      <div class="field">
+        <%= form.label :amount %>
+        <%= form.number_field :amount, id: :proyect_amount_id %>
+      </div>
+
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_field :description, id: :proyect_description_id %>
+      </div>
   </div>
+
+  <div class="right">
+    <span class="loginwith">Choose an image for your<br />project</span>
+    <div class="field">
+      <%= form.file_field :avatar %>
+      <% if @proyect.avatar? %>x
+        <%= image_tag @proyect.avatar.url(:thumb) %>
+      <% end %>
+    </div>
+  </div>
+
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Project", :class => "Signup" %>
   </div>
 
 <% end %>
+
+</div>

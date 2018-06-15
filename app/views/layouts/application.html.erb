@@ -130,7 +130,7 @@
           <li><%= link_to "Profile", current_user %></li>
           <li><a class="nav-link" href="/wishlists">Wishlist</a></li>
           <li><a class="nav-link" href="/proyects/new">New Project</a></li>
-          <li><a> User Name: <%= current_user.username %></a></li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <%= form_tag(proyects_path, :method => "get", id: "search-form", :class => "search-box") do %>
@@ -138,6 +138,7 @@
             <%= submit_tag "Search", :name => nil, :class => "search-btn" %>
 
           <% end %>
+          <li><a> Hi <%= current_user.username %>!</a></li>
           <li><a class="nav-link" href="/users/sign_out">Log Out</a></li>
         </ul>
       </div>
