@@ -1,28 +1,356 @@
+<style>
 
-<h1>User Projects</h1>
+  {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Proyect</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  body, html {
+    height: 100%;
+    font-family: sans-serif;
+  }
 
-  <tbody>
-    <% @user_projects.each do |user_project| %>
-      <tr>
-        <td><%= user_project.user_id %></td>
-        <td><%= user_project.proyect_id %></td>
-        <td><%= link_to 'Show', user_project %></td>
-        <td><%= link_to 'Edit', edit_user_project_path(user_project) %></td>
-        <td><%= link_to 'Destroy', user_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  /* ------------------------------------ */
+  a {
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+  }
+
+  a:focus {
+    outline: none !important;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  /* ------------------------------------ */
+  h1,h2,h3,h4,h5,h6 {margin: 0px;}
+
+  p {margin: 0px;}
+
+  ul, li {
+    margin: 0px;
+    list-style-type: none;
+  }
+
+
+  /* ------------------------------------ */
+  input {
+    display: block;
+    outline: none;
+    border: none !important;
+  }
+
+  textarea {
+    display: block;
+    outline: none;
+  }
+
+  textarea:focus, input:focus {
+    border-color: transparent !important;
+  }
+
+  /* ------------------------------------ */
+  button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  iframe {
+    border: none !important;
+  }
+
+  /*//////////////////////////////////////////////////////////////////
+  [ Scroll bar ]*/
+  .js-pscroll {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .table100 .ps__rail-y {
+    width: 9px;
+    background-color: transparent;
+    opacity: 1 !important;
+    right: 5px;
+  }
+
+  .table100 .ps__rail-y::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    width: 100%;
+    height: calc(100% - 30px);
+    left: 0;
+    top: 15px;
+  }
+
+  .table100 .ps__rail-y .ps__thumb-y {
+    width: 100%;
+    right: 0;
+    background-color: transparent;
+    opacity: 1 !important;
+  }
+
+  .table100 .ps__rail-y .ps__thumb-y::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #cccccc;
+    border-radius: 5px;
+    width: 100%;
+    height: calc(100% - 30px);
+    left: 0;
+    top: 15px;
+  }
+
+
+  /*//////////////////////////////////////////////////////////////////
+  [ Table ]*/
+
+  .limiter {
+    width: 1366px;
+    margin: 0 auto;
+  }
+
+  .container-table100 {
+    width: 100%;
+    min-height: 100vh;
+    background: #5a6268;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px;
+  }
+
+  .wrap-table100 {
+    width: 1170px;
+  }
+
+  /*//////////////////////////////////////////////////////////////////
+  [ Table ]*/
+  .table100 {
+    background-color: #5a6268;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    font-weight: unset;
+    padding-right: 10px;
+  }
+
+  .column1 {
+    width: 33%;
+    padding-left: 40px;
+  }
+
+  .column2 {
+    width: 13%;
+  }
+
+  .column3 {
+    width: 22%;
+  }
+
+  .column4 {
+    width: 19%;
+  }
+
+  .column5 {
+    width: 13%;
+  }
+
+  .table100-head th {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .table100-body td {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  /*==================================================================
+  [ Fix header ]*/
+  .table100 {
+    position: relative;
+    padding-top: 60px;
+  }
+
+  .table100-head {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .table100-body {
+    max-height: 585px;
+    overflow: auto;
+  }
+
+
+
+  /*==================================================================
+  [ Ver5 ]*/
+  .table100.ver5 {
+    margin-right: -30px;
+  }
+
+  .table100.ver5 .table100-head {
+    padding-right: 30px;
+  }
+
+  .table100.ver5 th {
+    font-family: Lato-Bold;
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.4;
+    text-transform: uppercase;
+
+    background-color: transparent;
+  }
+
+  .table100.ver5 td {
+    font-family: Lato-Regular;
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.4;
+
+    background-color: #f7f7f7;
+  }
+
+  .table100.ver5 .table100-body tr {
+    overflow: hidden;
+    border-bottom: 10px solid #fff;
+    border-radius: 10px;
+  }
+
+  .table100.ver5 .table100-body table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+  .table100.ver5 .table100-body td {
+    border: solid 1px transparent;
+    border-style: solid none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .table100.ver5 .table100-body td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .table100.ver5 .table100-body td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .table100.ver5 tr:hover td {
+    background-color: #ebebeb;
+    cursor: pointer;
+  }
+
+  .table100.ver5 .table100-head th {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  /*---------------------------------------------*/
+
+  .table100.ver5 {
+    overflow: hidden;
+  }
+
+  .table100.ver5 .table100-body{
+    padding-right: 30px;
+  }
+
+  .table100.ver5 .ps__rail-y {
+    right: 0px;
+  }
+
+  .table100.ver5 .ps__rail-y::before {
+    background-color: #ebebeb;
+  }
+
+  .table100.ver5 .ps__rail-y .ps__thumb-y::before {
+    background-color: #cccccc;
+  }
+
+  .hola {
+    position: absolute;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    left: 370px;
+    bottom: -50px;
+  }
+</style>
+
+<h1 style="text-align: center ">User Projects</h1>
+
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class = "table100 ver5 m-b-110">
+
+        <div class = "table100-head">
+
+          <table>
+            <thead>
+              <tr class ="row100 head">
+                <th class="cell100 column1" style="color: white;">User</th>
+                <th class="cell100 column2" style="color: white;">Proyect</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
+        <div class="table100-body js-pscroll">
+          <table>
+            <tbody>
+              <% @user_projects.each do |user_project| %>
+                <tr class="row100 body">
+                  <td class="cell100 column1"><%= user_project.user_id %></td>
+                  <td class="cell100 column2"><%= user_project.proyect_id %></td>
+                  <td class="cell100 column3"><%= link_to 'Show', user_project %></td>
+                  <td class="cell100 column4"><%= link_to 'Edit', edit_user_project_path(user_project) %></td>
+                  <td class="cell100 column5"><%= link_to 'Destroy', user_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New User Project', new_user_project_path %>
+<button class="hola" style="background-color: white">
+  <%= link_to 'New User Project', new_user_project_path %>
+</button>

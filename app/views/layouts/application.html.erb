@@ -8,6 +8,7 @@
   <meta name="author" content="">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -189,7 +190,7 @@
 
 </head>
 
-  <body class="container">
+  <body>
 
 
   <script>
@@ -216,7 +217,27 @@
 
   <%= yield %>
 
+  <!--===============================================================================================-->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script>
+      $('.js-pscroll').each(function(){
+          var ps = new PerfectScrollbar(this);
 
+          $(window).on('resize', function(){
+              ps.update();
+          })
+      });
+
+
+  </script>
+  <!--===============================================================================================-->
 
   </body>
 </html>
